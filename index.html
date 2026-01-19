@@ -3,130 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SYNHAR | Digital Services</title>
+  <title>SYNHAR</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="navbar">
-  <div class="logo">SYNHAR<span>.</span></div>
+<header>
+  <div class="logo">SYNHAR</div>
   <nav>
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#work">Work</a>
-    <a href="#contact" class="nav-btn">Contact</a>
+    <a href="#contact" class="btn-nav">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <h2>Digital Craft.<br>Student Prices.</h2>
-    <p>Professional photo editing & clean web development.</p>
-    <div class="hero-buttons">
-      <button onclick="scrollToSection('work')" class="btn-primary">View Work</button>
-      <button onclick="scrollToSection('services')" class="btn-secondary">See Pricing</button>
+  <div class="content">
+    <h1>Digital<br><span class="highlight">Precision</span></h1>
+    <p>Photo editing and web development for the modern era.</p>
+    <button onclick="document.getElementById('services').scrollIntoView()">View Services</button>
+  </div>
+</section>
+
+<section id="about" class="container">
+  <div class="text-block">
+    <h2>About</h2>
+    <p>SYNHAR is a minimalist digital workspace. I focus on removing the noise and delivering clean code and polished visuals at student-friendly rates.</p>
+  </div>
+</section>
+
+<section id="services" class="container">
+  <h2>Services</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Photo Editing</h3>
+      <p>Retouching, color grading, and restoration.</p>
+      <div class="price">₹20–₹30 / photo</div>
+    </div>
+    <div class="card">
+      <h3>Web Design</h3>
+      <p>Static HTML/CSS websites and portfolios.</p>
+      <div class="price">From ₹40</div>
+    </div>
+    <div class="card">
+      <h3>Code Help</h3>
+      <p>Debugging and script assistance.</p>
+      <div class="price">On Request</div>
     </div>
   </div>
 </section>
 
-<section id="about" class="section">
-  <div class="container">
-    <span class="tag">Who am I?</span>
-    <h3>About The Creator</h3>
-    <p>
-      SYNHAR is a digital workspace run by a student creator. I bridge the gap between 
-      expensive agencies and DIY confusion. My goal is simple: offer 
-      <strong>clean visuals</strong> and <strong>functional code</strong> at honest, student-friendly prices.
-    </p>
-  </div>
-</section>
-
-<section id="services" class="section dark">
-  <div class="container">
-    <h3>Services & Pricing</h3>
-    <p class="section-subtitle">Transparent costs. No hidden fees.</p>
-
-    <div class="service-grid">
-      <div class="service-card">
-        <div class="icon">🎨</div>
-        <h4>Photo Editing</h4>
-        <p>Color grading, background removal, skin retouching, and visual styling.</p>
-        <div class="price">₹20–₹30 <span>/ photo</span></div>
-      </div>
-
-      <div class="service-card">
-        <div class="icon">💻</div>
-        <h4>Website Design</h4>
-        <p>Portfolio sites, landing pages, and static HTML/CSS/JS websites.</p>
-        <div class="price">Starts at ₹40</div>
-      </div>
-
-      <div class="service-card">
-        <div class="icon">🔧</div>
-        <h4>Code Support</h4>
-        <p>Debugging, small script programs, and student-level coding tasks.</p>
-        <div class="price">On Request</div>
-      </div>
+<section id="work" class="container">
+  <h2>Selected Work</h2>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Work Sample 1">
+      <div class="caption">Photo Edit</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" alt="Work Sample 2">
+      <div class="caption">Web Design</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Work Sample 3">
+      <div class="caption">Coding</div>
     </div>
   </div>
 </section>
 
-<section id="work" class="section">
-  <div class="container">
-    <h3>Selected Work</h3>
-    <p class="muted">A glimpse of recent projects.</p>
-
-    <div class="work-grid">
-      <div class="work-item">
-        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Photo Editing Sample">
-        <div class="overlay">
-          <h4>Photo Retouch</h4>
-          <p>Editing</p>
-        </div>
-      </div>
-
-      <div class="work-item">
-        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Website Design Sample">
-        <div class="overlay">
-          <h4>Portfolio Site</h4>
-          <p>Web Design</p>
-        </div>
-      </div>
-
-      <div class="work-item">
-        <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Code Project">
-        <div class="overlay">
-          <h4>Scripting Task</h4>
-          <p>Coding</p>
-        </div>
-      </div>
-    </div>
+<section id="contact" class="container">
+  <div class="footer-box">
+    <h2>Get in touch</h2>
+    <p>yourmail@email.com</p>
+    <p>@synhar</p>
+    <div class="copyright">© 2026 SYNHAR</div>
   </div>
 </section>
 
-<section class="cta">
-  <h3>Ready to start?</h3>
-  <p>Let's create something great together.</p>
-  <button onclick="scrollToSection('contact')" class="btn-primary">Get in Touch</button>
-</section>
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
 
-<section id="contact" class="section dark footer-section">
-  <div class="container">
-    <h3>Contact Me</h3>
-    <div class="contact-links">
-      <a href="https://www.instagram.com/synhar.in/" class="contact-box">
-        <span>📸</span> @synhar.in
-      </a>
-    </div>
-    <footer>
-      <p>© 2026 SYNHAR | Designed & Built by You.</p>
-    </footer>
-  </div>
-</section>
-
-<script src="script.js"></script>
 </body>
 </html>
