@@ -4,85 +4,131 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SYNHAR | Digital Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="navbar">
-  <h1 class="logo">SYNHAR</h1>
+  <div class="logo">SYNHAR<span>.</span></div>
   <nav>
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#work">Work</a>
-    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-btn">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
-  <h2>Digital Work.<br>Clear Pricing.</h2>
-  <p>Photo editing & website building by a student creator</p>
-  <button onclick="scrollToSection('services')">View Services</button>
+  <div class="hero-content">
+    <h2>Digital Craft.<br>Student Prices.</h2>
+    <p>Professional photo editing & clean web development.</p>
+    <div class="hero-buttons">
+      <button onclick="scrollToSection('work')" class="btn-primary">View Work</button>
+      <button onclick="scrollToSection('services')" class="btn-secondary">See Pricing</button>
+    </div>
+  </div>
 </section>
 
 <section id="about" class="section">
-  <h3>About</h3>
-  <p>
-    SYNHAR is a personal digital workspace offering affordable photo editing
-    and basic web development. Focused on clean visuals, functional code,
-    and honest pricing.
-  </p>
+  <div class="container">
+    <span class="tag">Who am I?</span>
+    <h3>About The Creator</h3>
+    <p>
+      SYNHAR is a digital workspace run by a student creator. I bridge the gap between 
+      expensive agencies and DIY confusion. My goal is simple: offer 
+      <strong>clean visuals</strong> and <strong>functional code</strong> at honest, student-friendly prices.
+    </p>
+  </div>
 </section>
 
 <section id="services" class="section dark">
-  <h3>Services & Pricing</h3>
+  <div class="container">
+    <h3>Services & Pricing</h3>
+    <p class="section-subtitle">Transparent costs. No hidden fees.</p>
 
-  <div class="service-grid">
-    <div class="service-card">
-      <h4>Photo Editing</h4>
-      <p>Enhancement, background cleanup, visual styling</p>
-      <span>₹20–₹30 / photo</span>
-    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="icon">🎨</div>
+        <h4>Photo Editing</h4>
+        <p>Color grading, background removal, skin retouching, and visual styling.</p>
+        <div class="price">₹20–₹30 <span>/ photo</span></div>
+      </div>
 
-    <div class="service-card">
-      <h4>Website Design</h4>
-      <p>HTML, CSS, JavaScript static websites</p>
-      <span>₹40+</span>
-    </div>
+      <div class="service-card">
+        <div class="icon">💻</div>
+        <h4>Website Design</h4>
+        <p>Portfolio sites, landing pages, and static HTML/CSS/JS websites.</p>
+        <div class="price">Starts at ₹40</div>
+      </div>
 
-    <div class="service-card">
-      <h4>Code Help</h4>
-      <p>Small programs, fixes, student-level tasks</p>
-      <span>On request</span>
+      <div class="service-card">
+        <div class="icon">🔧</div>
+        <h4>Code Support</h4>
+        <p>Debugging, small script programs, and student-level coding tasks.</p>
+        <div class="price">On Request</div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="work" class="section">
-  <h3>Work Samples</h3>
-  <p class="muted">Add screenshots of edits or projects here</p>
+  <div class="container">
+    <h3>Selected Work</h3>
+    <p class="muted">A glimpse of recent projects.</p>
 
-  <div class="work-grid">
-    <div class="work-item">Photo Edit</div>
-    <div class="work-item">Website</div>
-    <div class="work-item">Code Task</div>
+    <div class="work-grid">
+      <div class="work-item">
+        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Photo Editing Sample">
+        <div class="overlay">
+          <h4>Photo Retouch</h4>
+          <p>Editing</p>
+        </div>
+      </div>
+
+      <div class="work-item">
+        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Website Design Sample">
+        <div class="overlay">
+          <h4>Portfolio Site</h4>
+          <p>Web Design</p>
+        </div>
+      </div>
+
+      <div class="work-item">
+        <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Code Project">
+        <div class="overlay">
+          <h4>Scripting Task</h4>
+          <p>Coding</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="cta">
-  <h3>Need work done?</h3>
-  <p>Affordable. Clear. Student-built.</p>
-  <button onclick="scrollToSection('contact')">Contact</button>
+  <h3>Ready to start?</h3>
+  <p>Let's create something great together.</p>
+  <button onclick="scrollToSection('contact')" class="btn-primary">Get in Touch</button>
 </section>
 
-<section id="contact" class="section dark">
-  <h3>Contact</h3>
-  <p>Email: yourmail@email.com</p>
-  <p>Instagram: @synhar</p>
+<section id="contact" class="section dark footer-section">
+  <div class="container">
+    <h3>Contact Me</h3>
+    <div class="contact-links">
+      <a href="mailto:yourmail@email.com" class="contact-box">
+        <span>✉️</span> yourmail@email.com
+      </a>
+      <a href="#" class="contact-box">
+        <span>📸</span> @synhar
+      </a>
+    </div>
+    <footer>
+      <p>© 2026 SYNHAR | Designed & Built by You.</p>
+    </footer>
+  </div>
 </section>
-
-<footer>
-  <p>© 2026 SYNHAR</p>
-</footer>
 
 <script src="script.js"></script>
 </body>
