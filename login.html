@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rate My Snap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yellow:#FFFC00;
+    --ink:#111111;
+    --paper:#FAFAF6;
+    --coral:#FF5A36;
+    --muted:#6E6E68;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    background:var(--paper);
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:32px 20px;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  .star{
+    position:absolute;
+    width:14px;
+    height:14px;
+    background:var(--ink);
+    clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+    opacity:0.08;
+    pointer-events:none;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:36px;
+    z-index:1;
+  }
+  .brand-mark{
+    width:40px;height:40px;
+    background:var(--yellow);
+    border:2px solid var(--ink);
+    border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;
+  }
+  .brand-name{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:-0.02em;
+  }
+
+  .card{
+    background:var(--card);
+    border:2px solid var(--ink);
+    border-radius:20px;
+    width:100%;
+    max-width:400px;
+    padding:40px 32px 32px;
+    text-align:center;
+    position:relative;
+    z-index:1;
+    box-shadow:6px 6px 0 var(--ink);
+  }
+
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:500;
+    margin-bottom:14px;
+  }
+
+  h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:32px;
+    line-height:1.1;
+    letter-spacing:-0.02em;
+    margin:0 0 12px;
+  }
+  h1 span{
+    background:var(--yellow);
+    padding:0 6px;
+    border-radius:4px;
+  }
+
+  p.sub{
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.5;
+    margin:0 0 28px;
+  }
+
+  #login-container-target{
+    display:flex;
+    justify-content:center;
+    margin-bottom:4px;
+  }
+
+  .fineprint{
+    margin-top:20px;
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.5;
+  }
+
+  #user-data{
+    display:none;
+  }
+  .avatar-wrap{
+    width:88px;height:88px;
+    border-radius:50%;
+    border:2px solid var(--ink);
+    overflow:hidden;
+    margin:0 auto 18px;
+    background:var(--yellow);
+  }
+  #bitmoji-avatar{
+    width:100%;height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .welcome-name{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:22px;
+  }
+  .id-row{
+    margin-top:18px;
+    padding:12px 14px;
+    background:var(--paper);
+    border:1px solid #E4E2DA;
+    border-radius:10px;
+    font-size:13px;
+    color:var(--muted);
+    text-align:left;
+  }
+  .id-row strong{
+    color:var(--ink);
+    font-weight:500;
+  }
+
+  .stars-row{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    margin:18px 0 4px;
+  }
+  .stars-row .pip{
+    width:22px;height:22px;
+    background:var(--coral);
+    clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+  }
+
+  .hidden{display:none !important;}
+
+  footer{
+    margin-top:28px;
+    font-size:12px;
+    color:var(--muted);
+    z-index:1;
+  }
+
+  @media (max-width:420px){
+    .card{padding:32px 22px 26px;}
+    h1{font-size:26px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="brand">
+    <div class="brand-mark">&#128123;</div>
+    <div class="brand-name">Rate My Snap</div>
+  </div>
+
+  <div class="card">
+    <div id="pre-login">
+      <div class="eyebrow">Community ratings</div>
+      <h1>Post it. Let them <span>rate it.</span></h1>
+      <p class="sub">Sign in with Snapchat to share a Snap and get honest star ratings from the community.</p>
+
+      <div id="login-container-target"></div>
+
+      <div class="fineprint">We only ever request your display name, Bitmoji, and account ID. Nothing else, ever.</div>
+    </div>
+
+    <div id="user-data">
+      <div class="avatar-wrap">
+        <img id="bitmoji-avatar" src="" alt="Bitmoji">
+      </div>
+      <div class="welcome-name">Hey, <span id="display-name"></span></div>
+      <div class="stars-row">
+        <div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div><div class="pip"></div>
+      </div>
+      <p class="sub" style="margin-bottom:0;">You're in. Ready to post your first Snap for rating.</p>
+      <div class="id-row"><strong>Account ID</strong><br><span id="external-id"></span></div>
+    </div>
+  </div>
+
+  <footer>ratemysnap.vercel.app</footer>
+
+  <script>
+    (function(){
+      const n = 16;
+      for(let i=0;i<n;i++){
+        const s = document.createElement('div');
+        s.className='star';
+        s.style.left = Math.random()*100+'vw';
+        s.style.top = Math.random()*100+'vh';
+        const scale = 0.6 + Math.random()*1.8;
+        s.style.transform = `scale(${scale}) rotate(${Math.random()*40-20}deg)`;
+        document.body.appendChild(s);
+      }
+    })();
+
+    window.snapKitInit = function () {
+      snap.loginkit.mountButton('login-container-target', {
+        clientId: 'YOUR_CLIENT_ID_HERE', // paste your real Client ID from kit.snapchat.com
+        redirectURI: 'https://ratemysnap.vercel.app/login',
+        scopeList: [
+          'user.display_name',
+          'user.bitmoji.avatar',
+          'user.external_id'
+        ],
+        handleResponseCallback: function () {
+          snap.loginkit.fetchUserInfo().then(
+            function (result) {
+              const me = result.data.me;
+              document.getElementById('display-name').innerText = me.displayName || 'Snapchatter';
+
+              // Bitmoji can be null if the account hasn't set one up — guard against it
+              if (me.bitmoji && me.bitmoji.avatar) {
+                document.getElementById('bitmoji-avatar').src = me.bitmoji.avatar;
+              } else {
+                document.getElementById('bitmoji-avatar').style.display = 'none';
+              }
+
+              document.getElementById('external-id').innerText = me.externalId || 'n/a';
+
+              document.getElementById('pre-login').classList.add('hidden');
+              document.getElementById('user-data').style.display = 'block';
+            },
+            function (err) {
+              // Print full details instead of a collapsed [object Object]
+              console.error('Error fetching user info:', JSON.stringify(err, null, 2));
+              alert('Login failed: ' + (err && err.message ? err.message : JSON.stringify(err)));
+            }
+          );
+        },
+      });
+    };
+
+    (function (d, s, id) {
+      var js, sjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = 'https://sdk.snapkit.com/js/v1/login.js';
+      sjs.parentNode.insertBefore(js, sjs);
+    })(document, 'script', 'loginkit-sdk');
+  </script>
+
+</body>
+</html>
