@@ -236,8 +236,7 @@
         redirectURI: 'https://ratemysnap.vercel.app/login',
         scopeList: [
           'user.display_name',
-          'user.bitmoji.avatar',
-          'user.external_id'
+          'user.bitmoji.avatar'
         ],
         handleResponseCallback: function () {
           snap.loginkit.fetchUserInfo().then(
@@ -252,7 +251,7 @@
                 document.getElementById('bitmoji-avatar').style.display = 'none';
               }
 
-              document.getElementById('external-id').innerText = me.externalId || 'n/a';
+              document.getElementById('external-id').innerText = me.externalId || 'not requested';
 
               document.getElementById('pre-login').classList.add('hidden');
               document.getElementById('user-data').style.display = 'block';
