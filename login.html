@@ -173,7 +173,7 @@
     // Replace with your project's actual URL and anon/public key
     const SUPABASE_URL = 'https://ymkywclpmhyaghptjfkd.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlta3l3Y2xwbWh5YWdocHRqZmtkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0ODE1NzYsImV4cCI6MjA5ODA1NzU3Nn0.p_ZEEqOnTGV-z4J1cf6UnHVL0Hao_zh0sTlP6HfiFYo';
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     const detailsStep = document.getElementById('step-details');
     const otpStep = document.getElementById('step-otp');
@@ -228,7 +228,7 @@
 
       setLoading(sendOtpBtn, true, 'Send verification code');
 
-      const { error } = await supabase.auth.signInWithOtp({ phone });
+      const { error } = await supabaseClient.auth.signInWithOtp({ phone });
 
       setLoading(sendOtpBtn, false, 'Send verification code');
 
@@ -258,7 +258,7 @@
 
       setLoading(verifyBtn, true, 'Verify & continue');
 
-      const { data, error } = await supabase.auth.verifyOtp({
+      const { data, error } = await supabaseClient.auth.verifyOtp({
         phone: pendingPhone,
         token,
         type: 'sms'
@@ -273,7 +273,7 @@
       const user = data.user;
 
       // Upsert into profiles: id must match auth.users.id
-      const { error: profileError } = await supabase
+      const { error: profileError } = await supabaseClient
         .from('profiles')
         .upsert({
           id: user.id,
