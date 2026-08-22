@@ -232,7 +232,7 @@
 
     window.snapKitInit = function () {
       snap.loginkit.mountButton('login-container-target', {
-        clientId: '1805b871-752e-47d3-8c0b-3fae0559cb65', // paste your real Client ID from kit.snapchat.com
+        clientId: 'YOUR_CLIENT_ID_HERE', // paste your real Client ID from kit.snapchat.com
         redirectURI: 'https://ratemysnap.vercel.app/',
         scopeList: [
           'user.display_name',
@@ -243,15 +243,24 @@
           snap.loginkit.fetchUserInfo().then(
             function (result) {
               const me = result.data.me;
-              document.getElementById('display-name').innerText = me.displayName;
-              document.getElementById('bitmoji-avatar').src = me.bitmoji.avatar;
-              document.getElementById('external-id').innerText = me.externalId;
+              document.getElementById('display-name').innerText = me.displayName || 'Snapchatter';
+
+              // Bitmoji can be null if the account hasn't set one up — guard against it
+              if (me.bitmoji && me.bitmoji.avatar) {
+                document.getElementById('bitmoji-avatar').src = me.bitmoji.avatar;
+              } else {
+                document.getElementById('bitmoji-avatar').style.display = 'none';
+              }
+
+              document.getElementById('external-id').innerText = me.externalId || 'n/a';
 
               document.getElementById('pre-login').classList.add('hidden');
               document.getElementById('user-data').style.display = 'block';
             },
             function (err) {
-              console.error('Error fetching user info:', err);
+              // Print full details instead of a collapsed [object Object]
+              console.error('Error fetching user info:', JSON.stringify(err, null, 2));
+              alert('Login failed: ' + (err && err.message ? err.message : JSON.stringify(err)));
             }
           );
         },
