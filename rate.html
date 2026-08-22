@@ -65,8 +65,10 @@
   }
   .snap-thumb{
     width:100%;aspect-ratio:4/5;background:var(--yellow);border:2px solid var(--ink);
-    border-radius:14px;margin-bottom:16px;display:flex;align-items:center;justify-content:center;
-    font-size:40px;
+    border-radius:14px;margin-bottom:16px;overflow:hidden;
+  }
+  .snap-thumb img{
+    width:100%;height:100%;object-fit:cover;display:block;
   }
   .snap-meta{font-size:13px;color:var(--muted);margin-bottom:14px;}
   .stars-row{display:flex;gap:8px;margin-bottom:18px;}
@@ -105,7 +107,11 @@
     </div>
 
     <div class="snap-card">
-      <div class="snap-thumb">https://in.pinterest.com/pin/935552522605347374/;</div>
+      <div class="snap-thumb">
+        <!-- Replace with the direct image URL, e.g. https://i.pinimg.com/originals/xx/xx/xx/xxxx.jpg
+             (right-click the image on the Pinterest pin -> "Copy image address") -->
+        <img src="https://ibb.co/vxysjqGN" alt="Snap">
+      </div>
       <div class="snap-meta">Posted by @thashi &middot; 2h ago</div>
       <div class="stars-row" id="star-picker">
         <button class="star-btn" data-value="1" aria-label="Rate 1 star"></button>
